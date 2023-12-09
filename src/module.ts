@@ -80,6 +80,8 @@ export default defineNuxtModule({
 
     const schemas = await import(schema).then((m) => m.default || m);
 
+    // FIXME: @ts-expect-error fix this
+    // @ts-expect-error fix this
     adminSchema.forEach(({ table, primaryKey }) => {
       // check id tableName is in schema
       if (!schemas[table]) throw new Error(`Table ${table} not found in schema`);
