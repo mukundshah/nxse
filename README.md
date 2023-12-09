@@ -2,7 +2,12 @@
 <img src="./docs/public/logo.png" width="150">
 </p>
 
-<h1 align="center">Nuxt Server Extension 🚧</h1>
+<h1 align="center">Nuxt Server Extension<br>
+<span style="font-size: 0.625em; font-weight: 400;">
+🚧 Work in progress 🚧
+
+</span>
+</h1>
 
 <p align="center">
 <a href="https://nxse.vercel.app"> Why NXSE? </a> |
@@ -78,6 +83,17 @@ npm run test:watch
 # Release new version
 npm run release
 ```
+
+## Special Thanks
+
+- [Awecode](https://awecode.com) for sponsoring this project
+- [Nuxt](https://nuxt.com) for creating the best framework for Vue
+- [Nuxt UI](https://ui.nuxt.com) for creating the best UI Library for Nuxt
+- [Drizzle](https://orm.drizzle.com) for creating the best type-safe ORM
+
+## License
+
+[MIT License](./LICENSE) © 2023 [Mukund Shah](https://github.com/mukundshah)
 
 <!-- Badges -->
 <!-- [npm-version-src]: https://img.shields.io/npm/v/nuxt-server-extension/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
