@@ -2,13 +2,10 @@
 <img src="./docs/public/logo.png" width="150">
 </p>
 
-<h1 align="center">Nuxt Server Extension<br>
-<span style="font-size: 0.625em; font-weight: 400;">
-🚧 Work in progress 🚧
+<h1 align="center">Nuxt Server Extension</h1>
 
-</span>
-</h1>
-
+<p align="center"> 🚧 Work in progress 🚧 </p>
+  
 <p align="center">
 <a href="https://nxse.vercel.app"> Why NXSE? </a> |
 <a href="https://nxse.vercel.app"> Documentation </a> |
