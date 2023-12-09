@@ -2,7 +2,7 @@ import { Nuxt } from 'nuxt/schema'
 import { existsSync } from 'fs'
 import { Resolver } from '@nuxt/kit'
 
-const DEVTOOLS_UI_ROUTE = '/__my-module'
+const DEVTOOLS_UI_ROUTE = '/__nuxt-server-extension'
 const DEVTOOLS_UI_LOCAL_PORT = 3300
 
 export function setupDevToolsUI(nuxt: Nuxt, resolver: Resolver) {
@@ -37,7 +37,7 @@ export function setupDevToolsUI(nuxt: Nuxt, resolver: Resolver) {
   nuxt.hook('devtools:customTabs', (tabs) => {
     tabs.push({
       // unique identifier
-      name: 'my-module',
+      name: 'nuxt-server-extension',
       // title to display in the tab
       title: 'My Module',
       // any icon from Iconify, or a URL to an image
