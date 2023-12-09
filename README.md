@@ -9,9 +9,9 @@ Find and replace all on all files (CMD+SHIFT+F):
 
 # My Module
 
-[![npm version][npm-version-src]][npm-version-href]
+<!-- [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![License][license-src]][license-href]
+[![License][license-src]][license-href] -->
 [![Nuxt][nuxt-src]][nuxt-href]
 
 My new Nuxt module integrated with the [Nuxt Devtools](https://github.com/nuxt/devtools).
