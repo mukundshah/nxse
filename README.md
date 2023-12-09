@@ -1,14 +1,23 @@
-# Nuxt Server Extension 🚧
+<p align="center">
+<img src="./docs/public/logo.png" width="150">
+</p>
 
-<!-- [![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![License][license-src]][license-href] -->
-[![Nuxt][nuxt-src]][nuxt-href]
+<h1 align="center">Nuxt Server Extension 🚧</h1>
+
+<p align="center">
+<a href="https://nxse.vercel.app"> Why NXSE? </a> |
+<a href="https://nxse.vercel.app"> Documentation </a> |
+<a href="https://nxse.vercel.app"> Release Notes </a>
+</p>
+
+<p align="center">
+<!-- <a href="https://npmjs.com/package/@stylistic/eslint-plugin-js"><img src="https://img.shields.io/npm/v/@stylistic/eslint-plugin-js?style=flat&colorA=1B3C4A&colorB=32A9C3" alt="npm version"></a>
+<a href="https://npmjs.com/package/@stylistic/eslint-plugin-js"><img src="https://img.shields.io/npm/dm/@stylistic/eslint-plugin-js?style=flat&colorA=1B3C4A&colorB=32A9C3" alt="npm downloads"></a>
+<a href="https://app.codecov.io/gh/eslint-stylistic/eslint-stylistic"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/eslint-stylistic/eslint-stylistic?token=B85J0E2I7I&style=flat&labelColor=1B3C4A&color=32A9C3&precision=1"></a> -->
+<a href=""><img alt="Nuxt" src="https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js"></a>
+</p>
 
 My new Nuxt module integrated with the [Nuxt Devtools](https://github.com/nuxt/devtools).
-
-- [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [📖 &nbsp;Documentation](https://example.com) -->
 
 ## Features
 
@@ -43,11 +52,6 @@ export default defineNuxtConfig({
 ```
 
 That's it! You can now use My Module in your Nuxt app ✨
-
-## Documentation
-
-Visit [nxse.vercel.app](https://nxse.vercel.app) for more information.
-
 
 ## Development
 
@@ -85,5 +89,3 @@ npm run release
 [license-src]: https://img.shields.io/npm/l/nuxt-server-extension.svg?style=flat&colorA=18181B&colorB=28CF8D
 [license-href]: https://npmjs.com/package/nuxt-server-extension
 -->
-[nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
-[nuxt-href]: https://nuxt.com
