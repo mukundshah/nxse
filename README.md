@@ -1,11 +1,11 @@
 <p align="center">
-<img src="./docs/public/logo.png" width="150">
+<img src="./docs/public/logo.png" height="175">
 </p>
 
 <h1 align="center">Nuxt Server Extension</h1>
 
 <p align="center"> 🚧 Work in progress 🚧 </p>
-  
+
 <p align="center">
 <a href="https://nxse.vercel.app"> Why NXSE? </a> |
 <a href="https://nxse.vercel.app"> Documentation </a> |
