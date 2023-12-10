@@ -17,24 +17,27 @@ import { createFormSchema } from "./runtime/server/utils/drizzle-form";
 
 import { name, version } from '../package.json'
 
-export default defineNuxtModule({
-  defaults: {
-    drizzleSchema: "./server/db/schema",
-    adminSchema: "./server/admin",
-    database: {
-      provider: "neon",
-      pool: true,
-      binding: null,
-      logger: true,
-    },
-  },
+export interface ModuleOptions {
+  drizzleSchema: string;
+  adminSchema: string;
+  database: {
+    provider: "neon" | "sqlite3" | "turso" | "mysql" | "pg" | "planetscale" | "d1"
+    pool: boolean;
+    binding: string | null;
+    logger: boolean;
+  };
+}
+
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name,
     version,
     configKey: "serverExtension"
   },
   async setup(options, nuxt) {
-    const { resolve, resolvePath } = createResolver(import.meta.url);
+    if (!options.drizzleSchema || !options.adminSchema) return;
+
+    const { resolve, resolvePath } = createResolver(import.meta.url)
     const schema = await resolvePath(options.drizzleSchema, { cwd: nuxt.options.rootDir });
 
     addLayout({ src: resolve("./runtime/layouts/admin.vue") }, "admin");
