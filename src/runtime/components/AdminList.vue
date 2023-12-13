@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, defineProps, ref } from 'vue'
-import { useLazyFetch } from '#imports'
+import { computed, provide, ref, useFetch, watch } from '#imports'
 
 const props = defineProps<{
   endpoint: string

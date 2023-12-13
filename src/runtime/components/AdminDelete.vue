@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, ref, useLazyFetch } from '#imports'
+
 const props = defineProps<{
   endpoint: string
 }>()
@@ -22,66 +24,22 @@ const { data, pending } = await useLazyFetch(props.endpoint, { params })
 </script>
 
 <template>
-  <div class="flex items-center justify-between w-full pb-5">
-    <div>
-      <UInput v-model="search" icon="i-heroicons-magnifying-glass-20-solid" placeholder="Search..." />
+  <di class="flex items-center justify-between w-full pb-5">
+    <div class="flex items-center gap-2">
+      <div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white">
+        <i class="i-heroicons-trash-2"></i>
+      </div>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+        Delete
+      </h2>
     </div>
-
-    <div class="flex gap-1.5 items-center">
-      <!-- <UDropdown v-if="selectedRows.length > 1" :items="actions" :ui="{ width: 'w-36' }">
-        <UButton
-          icon="i-heroicons-chevron-down"
-          trailing
-          color="gray"
-          size="xs"
-        >
-          Mark as
-        </UButton>
-      </UDropdown> -->
-
-      <!-- <USelectMenu v-model="selectedColumns" :options="columns" multiple>
-        <UButton
-          icon="i-heroicons-view-columns"
-          color="gray"
-          size="xs"
-        >
-          Columns
-        </UButton>
-      </USelectMenu>
-
-      <UButton
-        icon="i-heroicons-funnel"
-        color="gray"
-        size="xs"
-        :disabled="search === '' && selectedStatus.length === 0"
-        @click="resetFilters"
-      >
-        Reset
-      </UButton> -->
+    <div class="flex items-center gap-2">
+      <button class="btn btn-primary">
+        Delete
+      </button>
+      <button class="btn btn-white">
+        Cancel
+      </button>
     </div>
-  </div>
-  <UTable
-    :rows="data"
-    :loading="pending"
-    sort-asc-icon="i-heroicons-arrow-up"
-    sort-desc-icon="i-heroicons-arrow-down"
-    class="w-full"
-  />
-  <div class="flex flex-wrap items-center justify-between pt-5">
-    <div class="flex items-center gap-1.5">
-      <span class="text-sm leading-5">Rows per page:</span>
-
-      <USelect
-        v-model="pageSize"
-        :options="[10, 20, 50, 100, 200]"
-        size="xs"
-      />
-    </div>
-
-    <UPagination
-      v-model="page"
-      :page-count="data.size"
-      :total="data.pages"
-    />
-  </div>
+  </di>
 </template>

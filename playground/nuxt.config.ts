@@ -1,4 +1,4 @@
 export default defineNuxtConfig({
-  modules: [ '@nuxt/devtools', '../src/module' ],
+  modules: ['@nuxt/devtools', '../src/module'],
   serverExtension: {},
 })

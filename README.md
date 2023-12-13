@@ -25,7 +25,7 @@ My new Nuxt module integrated with the [Nuxt Devtools](https://github.com/nuxt/d
 
 <!-- Highlight some of the features your module provide here -->
 - Database utilities
-- REST API Utilities
+- REST API Utilities (coming soon)
 - Admin panel
 
 ## Quick Setup

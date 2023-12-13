@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, ref, useLazyFetch, useRoute } from '#imports'
+
 const props = withDefaults(defineProps<{
   endpoint: string
   edit: boolean
