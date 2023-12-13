@@ -10,10 +10,12 @@ export default await antfu(
         'vue/component-options-name-casing': ['error', 'kebab-case'],
         'vue/html-self-closing': ['error', { html: { normal: 'never', void: 'always' } }],
       },
-      antfu: {
-        'antfu/if-newline': 'off',
-        'antfu/top-level-function': 'off',
-      },
+    },
+  },
+  {
+    rules: {
+      'antfu/if-newline': 'off',
+      'antfu/top-level-function': 'off',
     },
   },
 )
