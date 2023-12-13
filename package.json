@@ -18,16 +18,17 @@
     "dist"
   ],
   "scripts": {
+    "dev": "nuxi dev playground",
+    "play": "pnpm dev",
+    "dev:build": "nuxi build playground",
+    "dev:generate": "nuxi generate playground",
+    "dev:prepare": "nuxt-module-build prepare && nuxt-module-build build --stub && nuxi prepare playground",
+    "postinstall": "pnpm dev:prepare",
     "build": "nuxt-module-build build",
     "prepack": "pnpm build",
-    "dev": "nuxi dev docs",
-    "play": "nuxi dev playground",
-    "build:docs": "nuxi generate docs",
+    "release": "pnpm lint && pnpm test && pnpm prepack && pnpm changelogen --release --push && pnpm publish",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare docs",
-    "release": "release-it",
-    "test": "vitest"
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@nuxt/kit": "^3.8.2",
