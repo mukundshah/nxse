@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.8.2",
+    "drizzle-kit": "^0.20.6",
     "drizzle-orm": "^0.29.1",
     "knitwork": "^1.0.0",
     "scule": "1.1.1",

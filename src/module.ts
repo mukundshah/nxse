@@ -10,34 +10,42 @@ import {
 } from 'nuxt/kit'
 import { kebabCase } from 'scule'
 import type { Table } from 'drizzle-orm'
+import type { DbConnection, Config as _DrizzleKitConfig } from 'drizzle-kit'
 
 import { name, version } from '../package.json'
 import { ACTION_METHODS, crud, handler } from './templates/api'
 import { crud as crudPages } from './templates/pages'
 import { createFormSchema } from './runtime/server/utils/drizzle-form'
 
+// type DbConnectionWithPlatform = DbConnection extends infer R ? R extends { driver: 'pg' | 'libsql' } ? R & { platform?: string } : R : never
+
+type DrizzleKitConfig = Partial<Omit<_DrizzleKitConfig, 'schema'> & { schema?: string } & DbConnection>
 export interface ModuleOptions {
-  drizzleSchema: string
   adminSchema: string
-  database: {
-    provider: 'neon' | 'sqlite3' | 'turso' | 'mysql' | 'pg' | 'planetscale' | 'd1'
-    pool: boolean
-    binding: string | null
-    logger: boolean
+  drizzle: {
+    config: DrizzleKitConfig
+    path: string
   }
 }
 
-export default defineNuxtModule<ModuleOptions>({
-  meta: {
-    name,
-    version,
-    configKey: 'serverExtension',
+const defaultDrizzleConfig: DrizzleKitConfig = {}
+
+const defaults = {
+  adminSchema: 'src/admin/schema.ts',
+  drizzle: {
+    config: defaultDrizzleConfig,
+    path: 'drizzle.config',
   },
+}
+
+export default defineNuxtModule<ModuleOptions>({
+  meta: { name, version, configKey: 'serverExtension' },
+  defaults,
   async setup(options, nuxt) {
-    if (!options.drizzleSchema || !options.adminSchema) return
+    if (!options.drizzle.config.schema || !options.adminSchema) return
 
     const { resolve, resolvePath } = createResolver(import.meta.url)
-    const schema = await resolvePath(options.drizzleSchema, { cwd: nuxt.options.rootDir })
+    const schema = await resolvePath(options.drizzle.config.schema, { cwd: nuxt.options.rootDir })
 
     addLayout({ src: resolve('./runtime/layouts/admin.vue') }, 'admin')
     addComponentsDir({ path: resolve('./runtime/components') })
@@ -49,15 +57,13 @@ export default defineNuxtModule<ModuleOptions>({
     )
 
     nuxt.options.nitro.virtual!['#server-extension/db/schema.mjs'] = `export * as schema from '${schema}'`
-    nuxt.options.nitro.virtual!['#server-extension/db/config.mjs'] = `export const config = ${JSON.stringify(
-      options.database,
-    )}`
+    nuxt.options.nitro.virtual!['#server-extension/db/credential.mjs'] = `export const credential = ${JSON.stringify(options.drizzle.config.dbCredentials)}`
 
     nuxt.hooks.hook('nitro:config', async (nitroConfig) => {
       nitroConfig.alias!['#server-extension/utils/h3-sql'] = resolve('./runtime/server/utils/h3-sql.ts')
       nitroConfig.alias!['#server-extension/utils/drizzle-form'] = resolve('./runtime/server/utils/drizzle-form.ts')
       nitroConfig.alias!['#server-extension/db'] = resolve(
-        `./runtime/server/utils/use-db/${options.database.provider}.ts`,
+        `./runtime/server/utils/use-db/${options.drizzle.config.driver}.ts`,
       )
     })
 
@@ -97,8 +103,7 @@ export default defineNuxtModule<ModuleOptions>({
           getContents: async () => handler(imports, body, returns, table, schema),
         })
 
-        nuxt.options.nitro.virtual![`#${fileName(table, action, primaryKey, 'server-extension/admin/api')}`] = () =>
-          nuxt.vfs[`#build/${fileName(table, action, primaryKey, 'server-extension/admin/api', false)}`]
+        nuxt.options.nitro.virtual![`#${fileName(table, action, primaryKey, 'server-extension/admin/api')}`] = () => nuxt.vfs[`#build/${fileName(table, action, primaryKey, 'server-extension/admin/api', false)}`]
 
         addServerHandler({
           route: `/admin/api/${table}${action === 'list' ? '' : action === 'create' ? '' : `/:${primaryKey}`}`,
@@ -117,15 +122,9 @@ export default defineNuxtModule<ModuleOptions>({
         extendPages((pages) => {
           pages.unshift({
             name: kebabCase(`${table}Admin${action[0].toUpperCase()}${action.slice(1)}`),
-            path: joinURL(
-              '/admin',
-              kebabCase(table),
-              action === 'list' ? '' : action === 'create' ? 'add' : `:${primaryKey}`,
-            ),
+            path: joinURL('/admin', kebabCase(table), action === 'list' ? '' : action === 'create' ? 'add' : `:${primaryKey}`),
             file: `#build/${pageFileName(kebabCase(table), action, primaryKey, 'server-extension/admin/pages')}`,
-            meta: {
-              layout: 'admin',
-            },
+            meta: { layout: 'admin' },
           })
         })
       })
