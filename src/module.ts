@@ -16,6 +16,7 @@ import { name, version } from '../package.json'
 import { ACTION_METHODS, crud, handler } from './templates/api'
 import { crud as crudPages } from './templates/pages'
 import { createFormSchema } from './runtime/server/utils/drizzle-form'
+import { undent } from './string'
 
 // type DbConnectionWithPlatform = DbConnection extends infer R ? R extends { driver: 'pg' | 'libsql' } ? R & { platform?: string } : R : never
 
@@ -23,8 +24,8 @@ type DrizzleKitConfig = Partial<Omit<_DrizzleKitConfig, 'schema'> & { schema?: s
 export interface ModuleOptions {
   adminSchema: string
   drizzle: {
-    config: DrizzleKitConfig
-    path: string
+    config?: DrizzleKitConfig
+    path?: string
   }
 }
 
@@ -90,6 +91,22 @@ export default defineNuxtModule<ModuleOptions>({
 
     // FIXME: @ts-expect-error fix this
     // @ts-expect-error fix this
+    if (adminSchema.length) {
+      addTemplate({
+        write: true,
+        filename: 'server-extension/admin/pages/index.vue',
+        getContents: () => `<template> <div></div> </template>`,
+      })
+      extendPages((pages) => {
+        pages.unshift({
+          name: 'admin',
+          path: '/admin',
+          file: '#build/server-extension/admin/pages/index.vue',
+          meta: { layout: 'admin' },
+        })
+      })
+    }
+
     adminSchema.forEach(({ table, primaryKey }) => {
       // check id tableName is in schema
       if (!schemas[table]) throw new Error(`Table ${table} not found in schema`)

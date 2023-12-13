@@ -6,12 +6,13 @@ import { MySqlChar, MySqlTable, MySqlVarBinary, MySqlVarChar, getTableConfig as 
 
 import type { Column, Table } from 'drizzle-orm'
 
+const getTableConfig = (t: Table) => is(t, MySqlTable) ? getMySqlTableConfig(t) : is(t, PgTable) ? getPgTableConfig(t) : getSQLiteTableConfig(t)
+
 export const createFormSchema = <TTable extends Table>(table: TTable): any => {
   const columns = getTableColumns(table)
   const columnEntries = Object.entries(columns)
 
-  const getConfig = (t: Table) => is(t, MySqlTable) ? getMySqlTableConfig(t) : is(t, PgTable) ? getPgTableConfig(t) : getSQLiteTableConfig(t)
-  const { foreignKeys } = getConfig(table)
+  const { foreignKeys } = getTableConfig(table)
 
   const schemaEntries = columnEntries.reduce((acc, [name, column]) => {
     if (column.primary) return acc // Skip primary keys
@@ -41,7 +42,7 @@ function isWithEnum(column: Column): column is typeof column & { enumValues: [st
 }
 
 function mapForeignKeyColumnToSchema(fkTable: Table, fkColumn: Column, column: Column): Partial<HTMLInputElement> & { label: string, table: string } {
-  const { name: tableName } = getPgTableConfig(fkTable)
+  const { name: tableName } = getTableConfig(fkTable)
   const columnName = upperFirst(splitByCase(column.name).filter(name => name !== fkColumn.name).join(' ').toLowerCase())
 
   return {

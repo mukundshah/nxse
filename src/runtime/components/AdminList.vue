@@ -31,7 +31,7 @@ watch(data, () => {
 </script>
 
 <template>
-  <div class="flex items-center justify-between w-full pb-5">
+  <div class="flex items-center justify-between w-full mb-5">
     <div>
       <UInput v-model="search" icon="i-heroicons-magnifying-glass-20-solid" placeholder="Search..." />
     </div>

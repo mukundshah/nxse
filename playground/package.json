@@ -1,0 +1,16 @@
+{
+  "name": "nxse-playground",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@nuxt/ui": "2.11.1",
+    "@nuxt/ui-pro": "0.6.1",
+    "better-sqlite3": "9.2.2"
+  }
+}

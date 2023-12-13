@@ -1,8 +1,5 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <div>
-    Nuxt module playground!
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
