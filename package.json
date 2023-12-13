@@ -30,7 +30,6 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@nuxt/devtools-kit": "^1.0.5",
     "@nuxt/kit": "^3.8.2",
     "drizzle-orm": "^0.29.1",
     "knitwork": "^1.0.0",
@@ -40,7 +39,6 @@
     "@antfu/eslint-config": "2.4.5",
     "@iconify-json/carbon": "^1.1.26",
     "@nuxt/devtools": "latest",
-    "@nuxt/devtools-ui-kit": "^1.0.5",
     "@nuxt/module-builder": "^0.5.4",
     "@nuxt/schema": "^3.8.2",
     "@nuxt/test-utils": "^3.8.1",
