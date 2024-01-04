@@ -2,6 +2,9 @@
 import type { Ref } from 'vue'
 import { computed, inject, ref } from 'vue'
 
+// @ts-expect-error auto-generated
+import { navigationTree } from '#build/server-extension/admin/navigation-tree'
+
 const to = '/'
 const title = 'Admin'
 
@@ -94,7 +97,6 @@ const items = [
   }],
 ]
 
-const navigation = inject<Ref<Array<any>>>('adminNavigation')
 const hasAdminFilters = inject<Ref<boolean>>('hasAdminFilters', ref(false))
 </script>
 
@@ -121,7 +123,7 @@ const hasAdminFilters = inject<Ref<boolean>>('hasAdminFilters', ref(false))
           <div :class="ui.left">
             <aside :class="aside.wrapper">
               <div class="relative">
-                <UNavigationTree :links="navigation" />
+                <UNavigationTree :links="navigationTree" />
               <!-- <nav v-if="links.length" :class="ui.wrapper">
                 <template v-for="(group, index) in links" :key="index">
                   <UNavigationAccordion

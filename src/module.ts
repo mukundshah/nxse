@@ -15,8 +15,8 @@ import type { DbConnection, Config as _DrizzleKitConfig } from 'drizzle-kit'
 import { name, version } from '../package.json'
 import { ACTION_METHODS, crud, handler } from './templates/api'
 import { crud as crudPages } from './templates/pages'
+import { buildNavigationTree } from './templates/navigation-tree'
 import { createFormSchema } from './runtime/server/utils/drizzle-form'
-import { undent } from './string'
 
 // type DbConnectionWithPlatform = DbConnection extends infer R ? R extends { driver: 'pg' | 'libsql' } ? R & { platform?: string } : R : never
 
@@ -89,9 +89,13 @@ export default defineNuxtModule<ModuleOptions>({
 
     const schemas = await import(schema).then(m => m.default || m)
 
-    // FIXME: @ts-expect-error fix this
-    // @ts-expect-error fix this
     if (adminSchema.length) {
+      addTemplate({
+        write: true,
+        filename: 'server-extension/admin/navigation-tree.mjs',
+        getContents: () => buildNavigationTree(adminSchema),
+      })
+
       addTemplate({
         write: true,
         filename: 'server-extension/admin/pages/index.vue',
