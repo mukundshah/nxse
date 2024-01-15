@@ -1,10 +1,14 @@
 {
-  "name": "nuxt-server-extension",
+  "name": "nxse",
   "type": "module",
   "version": "0.1.0",
   "description": "Database utilities, API views, admin UI, and more for Nuxt",
   "license": "MIT",
   "homepage": "https://nxse.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mukundshah/nxse"
+  },
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",

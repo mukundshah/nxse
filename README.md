@@ -2,7 +2,7 @@
 <img src="./docs/public/logo.png" height="175">
 </p>
 
-<h1 align="center">Nuxt Server Extension</h1>
+<h1 align="center">Nuxt Server Extension (NXSE)</h1>
 
 <p align="center"> 🚧 Work in progress 🚧 </p>
 
@@ -30,25 +30,25 @@ My new Nuxt module integrated with the [Nuxt Devtools](https://github.com/nuxt/d
 
 ## Quick Setup
 
-1. Add `nuxt-server-extension` dependency to your project
+1. Add `nxse` dependency to your project
 
 ```bash
 # Using pnpm
-pnpm add nuxt-server-extension
+pnpm add nxse
 
 # Using yarn
-yarn add nuxt-server-extension
+yarn add nxse
 
 # Using npm
-npm install nuxt-server-extension
+npm install nxse
 ```
 
-2. Add `nuxt-server-extension` to the `modules` section of `nuxt.config.ts`
+2. Add `nxse` to the `modules` section of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
   modules: [
-    'nuxt-server-extension'
+    'nxse'
   ]
 })
 ```
@@ -93,12 +93,12 @@ npm run release
 [MIT License](./LICENSE) © 2023 [Mukund Shah](https://github.com/mukundshah)
 
 <!-- Badges -->
-<!-- [npm-version-src]: https://img.shields.io/npm/v/nuxt-server-extension/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-version-href]: https://npmjs.com/package/nuxt-server-extension
+<!-- [npm-version-src]: https://img.shields.io/npm/v/nxse/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
+[npm-version-href]: https://npmjs.com/package/nxse
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-server-extension.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-downloads-href]: https://npmjs.com/package/nuxt-server-extension
+[npm-downloads-src]: https://img.shields.io/npm/dm/nxse.svg?style=flat&colorA=18181B&colorB=28CF8D
+[npm-downloads-href]: https://npmjs.com/package/nxse
 
-[license-src]: https://img.shields.io/npm/l/nuxt-server-extension.svg?style=flat&colorA=18181B&colorB=28CF8D
-[license-href]: https://npmjs.com/package/nuxt-server-extension
+[license-src]: https://img.shields.io/npm/l/nxse.svg?style=flat&colorA=18181B&colorB=28CF8D
+[license-href]: https://npmjs.com/package/nxse
 -->
