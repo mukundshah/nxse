@@ -32,7 +32,10 @@
     "prepack": "pnpm build",
     "release": "pnpm lint && pnpm test && pnpm prepack && pnpm changelogen --release --push && pnpm publish",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "@nuxt/kit": "^3.8.2",
