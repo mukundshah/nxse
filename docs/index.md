@@ -1,6 +1,8 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: NXSE - Nuxt Server Extension
+titleTemplate: false
 
 hero:
   name: NXSE
