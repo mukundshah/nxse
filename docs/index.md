@@ -3,9 +3,12 @@
 layout: home
 
 hero:
-  name: "Nuxt Server Extension"
-  text: "Nuxt Server Extension"
-  tagline: My great project tagline
+  name: NXSE
+  text: Nuxt Server Extension
+  tagline: Database utilities, API views, admin UI, and much more for Nuxt
+  image:
+    src: /logo.svg
+    alt: Nuxt Server Extension
   actions:
     - theme: brand
       text: Markdown Examples
@@ -15,11 +18,12 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
+  - icon: 🫙
+    title: Database utilities
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - icon: 🖥️
+    title: Admin Panel
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

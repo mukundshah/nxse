@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./docs/public/logo.png" height="175">
+<img src="./docs/public/logo.svg" height="175">
 </p>
 
 <h1 align="center">Nuxt Server Extension (NXSE)</h1>
