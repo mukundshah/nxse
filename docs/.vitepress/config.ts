@@ -10,7 +10,7 @@ export default defineConfig({
     logo: '/logo.svg',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
+      { text: 'Docs', link: '/docs' },
     ],
 
     sidebar: [
@@ -24,7 +24,8 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+      { icon: 'npm', link: 'https://npmjs.com/package/nxse' },
+      { icon: 'github', link: 'https://github.com/mukundshah/nxse' },
     ],
 
     footer: {
