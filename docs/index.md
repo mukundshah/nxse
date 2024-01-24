@@ -13,19 +13,19 @@ hero:
     alt: Nuxt Server Extension
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Get Started
+      link: /getting-started
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Demo
+      link: https://nxse-demo.vercel.app
 
 features:
   - icon: 🫙
     title: Database utilities
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: useDB composables for database access and management
   - icon: 🖥️
     title: Admin Panel
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: Django-like admin panel for managing your data
+  # - title: Feature C
+  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
