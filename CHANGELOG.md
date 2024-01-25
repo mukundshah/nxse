@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/mukundshah/nxse/compare/v0.1.1...v0.1.2)
+
+### 🩹 Fixes
+
+- Disable admin by default ([3a6f327](https://github.com/mukundshah/nxse/commit/3a6f327))
+- Log schema resolution error ([3b77741](https://github.com/mukundshah/nxse/commit/3b77741))
+
+### 🏡 Chore
+
+- Remove unused deps ([b18ec27](https://github.com/mukundshah/nxse/commit/b18ec27))
+
+### ❤️ Contributors
+
+- Mukund Shah
+
 ## v0.1.1
 
 
