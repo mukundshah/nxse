@@ -12,6 +12,7 @@
     "@nuxt/ui": "2.12.3",
     "@nuxt/ui-pro": "0.7.3",
     "better-sqlite3": "9.3.0",
+    "nuxt": "3.9.3",
     "nxse": "workspace:*"
   }
 }
