@@ -1,5 +1,6 @@
 import { join } from 'pathe'
 import { joinURL } from 'ufo'
+
 import {
   addComponentsDir,
   addLayout,
@@ -9,7 +10,7 @@ import {
   defineNuxtModule,
   extendPages,
   useNuxt,
-} from 'nuxt/kit'
+} from '@nuxt/kit'
 import { kebabCase } from 'scule'
 import type { Table } from 'drizzle-orm'
 import type { DbConnection, Config as _DrizzleKitConfig } from 'drizzle-kit'
