@@ -6,8 +6,11 @@ import { createClient } from '@libsql/client'
 // @ts-expect-error virtual file
 import { schema } from '#server-extension/db/schema.mjs'
 
+// @ts-expect-error virtual file
+import { credential } from '#server-extension/db/credential.mjs'
+
 export const useDB = () => {
-  const client = createClient({ url: 'DATABASE_URL', authToken: 'DATABASE_AUTH_TOKEN' })
+  const client = createClient(credential)
   const db = drizzle(client, { schema })
 
   return { db, client }
