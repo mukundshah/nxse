@@ -1,5 +1,5 @@
-import { joinURL } from 'ufo'
 import { join } from 'pathe'
+import { joinURL } from 'ufo'
 import {
   addComponentsDir,
   addLayout,
@@ -149,6 +149,10 @@ export default defineNuxtModule<ModuleOptions>({
         })
       }
 
+      // TODO: Add support for multiple primary keys
+      // TODO: Add support for multiple schemas
+      // TODO: Add types for schemas
+      // @ts-expect-error TODO: Add types for schemas
       adminSchema.forEach(({ table, primaryKey }) => {
       // check id tableName is in schema
         if (!schemas[table]) throw new Error(`Table ${table} not found in schema`)
