@@ -1,4 +1,3 @@
-import { env } from 'std-env'
 import { drizzle } from 'drizzle-orm/d1'
 
 // @ts-expect-error virtual file
