@@ -13,13 +13,10 @@
 </p>
 
 <p align="center">
-<!-- <a href="https://npmjs.com/package/@stylistic/eslint-plugin-js"><img src="https://img.shields.io/npm/v/@stylistic/eslint-plugin-js?style=flat&colorA=1B3C4A&colorB=32A9C3" alt="npm version"></a>
-<a href="https://npmjs.com/package/@stylistic/eslint-plugin-js"><img src="https://img.shields.io/npm/dm/@stylistic/eslint-plugin-js?style=flat&colorA=1B3C4A&colorB=32A9C3" alt="npm downloads"></a>
-<a href="https://app.codecov.io/gh/eslint-stylistic/eslint-stylistic"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/eslint-stylistic/eslint-stylistic?token=B85J0E2I7I&style=flat&labelColor=1B3C4A&color=32A9C3&precision=1"></a> -->
+<a href="https://npmjs.com/package/@stylistic/eslint-plugin-js"><img src="https://img.shields.io/npm/v/nxse?style=flat&colorA=1B3C4A&colorB=10B981" alt="npm version"></a>
+<a href="https://npmjs.com/package/@stylistic/eslint-plugin-js"><img src="https://img.shields.io/npm/dm/nxse?style=flat&colorA=1B3C4A&colorB=10B981" alt="npm downloads"></a>
 <a href=""><img alt="Nuxt" src="https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js"></a>
 </p>
-
-My new Nuxt module integrated with the [Nuxt Devtools](https://github.com/nuxt/devtools).
 
 ## Features
 
@@ -30,17 +27,17 @@ My new Nuxt module integrated with the [Nuxt Devtools](https://github.com/nuxt/d
 
 ## Quick Setup
 
-1. Add `nxse` dependency to your project
+1. Add `nxse` and `@nuxt/ui` dependency to your project (`nxse` does not ship with `@nuxt/ui`, but depends on it)
 
 ```bash
 # Using pnpm
-pnpm add nxse
+pnpm add nxse @nuxt/ui
 
 # Using yarn
-yarn add nxse
+yarn add nxse @nuxt/ui
 
 # Using npm
-npm install nxse
+npm install nxse @nuxt/ui
 ```
 
 2. Add `nxse` to the `modules` section of `nuxt.config.ts`
@@ -48,37 +45,34 @@ npm install nxse
 ```js
 export default defineNuxtConfig({
   modules: [
+    '@nuxt/ui',
     'nxse'
   ]
 })
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+That's it! You can now use the utilities provided by `nxse` in your Nuxt project.
 
 ## Development
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Generate type stubs
-npm run dev:prepare
+pnpm dev:prepare
 
-# Develop with playground, with devtools client ui
-npm run dev
+# Playground
+pnpm dev
 
-# Develop with playground, with bundled client ui
-npm run play:prod
+# Documentation
+pnpm docs:dev
 
 # Run ESLint
-npm run lint
-
-# Run Vitest
-npm run test
-npm run test:watch
+pnpm lint
 
 # Release new version
-npm run release
+pnpm release
 ```
 
 ## Special Thanks
@@ -90,15 +84,4 @@ npm run release
 
 ## License
 
-[MIT License](./LICENSE) © 2023 [Mukund Shah](https://github.com/mukundshah)
-
-<!-- Badges -->
-<!-- [npm-version-src]: https://img.shields.io/npm/v/nxse/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-version-href]: https://npmjs.com/package/nxse
-
-[npm-downloads-src]: https://img.shields.io/npm/dm/nxse.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-downloads-href]: https://npmjs.com/package/nxse
-
-[license-src]: https://img.shields.io/npm/l/nxse.svg?style=flat&colorA=18181B&colorB=28CF8D
-[license-href]: https://npmjs.com/package/nxse
--->
+[MIT License](./LICENSE) © 2023 [Mukund Shah](https://github.com/mukundshah) and contributors
