@@ -5,6 +5,10 @@
   "description": "Database utilities, API views, admin UI, and more for Nuxt",
   "license": "MIT",
   "homepage": "https://nxse.vercel.app",
+  "configKey": "nxse",
+  "compatibility": {
+    "nuxt": "^3.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mukundshah/nxse"
