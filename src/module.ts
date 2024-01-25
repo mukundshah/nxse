@@ -9,6 +9,7 @@ import {
   createResolver,
   defineNuxtModule,
   extendPages,
+  useLogger,
   useNuxt,
 } from '@nuxt/kit'
 import { kebabCase } from 'scule'
@@ -83,6 +84,7 @@ export default defineNuxtModule<ModuleOptions>({
   meta,
   defaults,
   async setup(options, nuxt) {
+    const logger = useLogger('nxse')
     const { resolve, resolvePath } = createResolver(import.meta.url)
 
     // Drizzle & Nitro
@@ -124,10 +126,16 @@ export default defineNuxtModule<ModuleOptions>({
       addLayout({ src: resolve('./runtime/layouts/admin.vue') }, 'nxse-admin')
       addComponentsDir({ path: resolve('./runtime/components') })
 
-      const schemas = await import(schema).then(m => m.default || m)
+      const schemas = await import(schema).then(m => m.default || m).catch((e) => {
+        logger.error(e.message)
+        return []
+      })
       const adminSchema: any = await import(await resolvePath(options.admin.schema, { cwd: nuxt.options.rootDir })).then(
         m => m.default || m,
-      )
+      ).catch((e) => {
+        logger.error(e.message)
+        return []
+      })
 
       if (adminSchema.length) {
         addTemplate({
