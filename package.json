@@ -1,7 +1,7 @@
 {
   "name": "nxse",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Database utilities, API views, admin UI, and more for Nuxt",
   "license": "MIT",
   "homepage": "https://nxse.vercel.app",
