@@ -35,7 +35,8 @@ export interface ModuleOptions {
   admin: {
     /**
      * Specifies whether the admin section is enabled.
-     * @default true
+     * Admin panel is opt-in.
+     * @default false
      */
     enabled: boolean
     /**
@@ -62,7 +63,7 @@ export interface ModuleOptions {
 
 const defaults = (nuxt = useNuxt()): ModuleOptions => ({
   admin: {
-    enabled: true,
+    enabled: false,
     schema: join(nuxt.options.serverDir, 'admin.schema.ts'),
     route: '/admin',
     title: 'NXSE Admin',
