@@ -10,11 +10,7 @@ import { schema } from '#server-extension/db/schema.mjs'
 import { credential } from '#server-extension/db/credential.mjs'
 
 export const useDB = () => {
-  const connection = mysql.createConnection({
-    host: 'host',
-    user: 'user',
-    database: 'database',
-  })
+  const connection = mysql.createConnection(credential)
   const db = drizzle(connection, { schema })
 
   return { db }
