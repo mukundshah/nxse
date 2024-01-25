@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
-import { computed, inject, ref } from 'vue'
+import { inject, ref } from 'vue'
 
 // @ts-expect-error auto-generated
 import { navigationTree } from '#build/server-extension/admin/navigation-tree'

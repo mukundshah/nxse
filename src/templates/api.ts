@@ -1,6 +1,5 @@
 import { type ESMImport, genImport } from 'knitwork'
 
-import { createResolver } from 'nuxt/kit'
 import { undent } from '../string'
 
 export const ACTION_METHODS: Record<string, string> = {
