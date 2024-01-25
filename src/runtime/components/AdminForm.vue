@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { computed, ref, useLazyFetch, useRoute } from '#imports'
+import { z } from 'zod'
+import type { FormSubmitEvent } from '@nuxt/ui/dist/runtime/types'
+
+import { reactive, ref, useFetch, useLazyFetch, useRoute } from '#imports'
 
 const props = withDefaults(defineProps<{
   endpoint: string
@@ -10,10 +13,17 @@ const props = withDefaults(defineProps<{
 })
 
 const form = ref()
+const schema = z.object(props.fields)
+const state = reactive({})
+
 const method = props.edit ? 'patch' : 'post'
 const endpoint = props.edit ? `${props.endpoint}/${useRoute().params.pk}` : props.endpoint
 
-const { data, pending } = await useLazyFetch(endpoint, { method })
+const { pending } = await useLazyFetch(endpoint, { method })
+
+const onSubmit = async (event: FormSubmitEvent<z.output<typeof schema>>) => {
+  await useFetch(endpoint, { method, body: event.data })
+}
 </script>
 
 <template>
@@ -37,11 +47,9 @@ const { data, pending } = await useLazyFetch(endpoint, { method })
         </template>
       </UFormGroup>
     </template>
-    <UButton type="button" color="red" variant="soft">
-      Delete
-    </UButton>
-    <UButton :loading="pending" type="submit">
-      {{ props.edit ? 'Update' : 'Create' }}
-    </UButton>
+    <div class="flex items-center gap-4">
+      <UButton type="button" color="red" variant="soft" label="Delete" />
+      <UButton :loading="pending" type="submit" label="Save" />
+    </div>
   </UForm>
 </template>
