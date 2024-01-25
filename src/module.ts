@@ -187,7 +187,7 @@ export default defineNuxtModule<ModuleOptions>({
               name: kebabCase(`${table}Admin${action[0].toUpperCase()}${action.slice(1)}`),
               path: joinURL('/', options.admin.route, kebabCase(table), action === 'list' ? '' : action === 'create' ? 'add' : `:${primaryKey}`),
               file: `#build/${pageFileName(kebabCase(table), action, primaryKey, 'server-extension/admin/pages')}`,
-              meta: { layout: 'admin' },
+              meta: { layout: 'nxse-admin' },
             })
           })
         })
