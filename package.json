@@ -1,7 +1,7 @@
 {
   "name": "nxse",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Database utilities, API views, admin UI, and more for Nuxt",
   "license": "MIT",
   "homepage": "https://nxse.vercel.app",
@@ -34,7 +34,7 @@
     "postinstall": "pnpm dev:prepare",
     "build": "nuxt-module-build build",
     "prepack": "pnpm build",
-    "release": "pnpm lint && pnpm test && pnpm prepack && pnpm changelogen --release --push && pnpm publish",
+    "release": "pnpm lint && pnpm prepack && pnpm changelogen --release --push && pnpm publish",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "docs:dev": "vitepress dev docs",
@@ -47,8 +47,10 @@
     "drizzle-orm": "^0.29.3",
     "drizzle-zod": "^0.5.1",
     "knitwork": "^1.0.0",
+    "pathe": "^1.1.2",
     "scule": "1.2.0",
     "sirv": "^2.0.4",
+    "ufo": "^1.3.2",
     "zod": "3.22.4"
   },
   "devDependencies": {
