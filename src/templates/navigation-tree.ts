@@ -1,9 +1,11 @@
 import { upperFirst } from 'scule'
+import { joinURL } from 'ufo'
+
 import { undent } from '../string'
 
-export const buildNavigationTree = adminSchema => undent`export const navigationTree = [
+export const buildNavigationTree = (route, adminSchema) => undent`export const navigationTree = [
   ${adminSchema.map(({ table }) => undent`{
     label: '${upperFirst(table)}',
-    to: '/admin/${table}',
+    to: '${joinURL('/', route, table)}',
   }`)}
 ]`
