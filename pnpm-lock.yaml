@@ -81,6 +81,9 @@ importers:
       better-sqlite3:
         specifier: 9.3.0
         version: 9.3.0
+      nxse:
+        specifier: workspace:*
+        version: link:..
 
 packages:
 
