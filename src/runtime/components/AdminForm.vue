@@ -37,5 +37,11 @@ const { data, pending } = await useLazyFetch(endpoint, { method })
         </template>
       </UFormGroup>
     </template>
+    <UButton type="button" color="red" variant="soft">
+      Delete
+    </UButton>
+    <UButton :loading="pending" type="submit">
+      {{ props.edit ? 'Update' : 'Create' }}
+    </UButton>
   </UForm>
 </template>
