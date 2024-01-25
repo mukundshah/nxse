@@ -8,7 +8,7 @@ export const crud = (model: string, fields: any) => ({
       :actions='[{ label: "Add ${model}", to: "/admin/${model}/add" }]'
     >
       <AdminList
-        endpoint='/admin/api/${model}'
+        endpoint='/__nxse_admin/api/${model}'
       />
     </AdminPage>
   </template>
@@ -19,7 +19,7 @@ export const crud = (model: string, fields: any) => ({
       title='Add ${model}'
     >
       <AdminForm
-        endpoint='/admin/api/${model}'
+        endpoint='/__nxse_admin/api/${model}'
         :fields='${JSON.stringify(fields)}'
       />
     </AdminPage>
@@ -32,7 +32,7 @@ export const crud = (model: string, fields: any) => ({
       title='Edit ${model}'
     >
       <AdminForm
-        endpoint='/admin/api/${model}'
+        endpoint='/__nxse_admin/api/${model}'
         :edit='true'
         :fields='${JSON.stringify(fields)}'
       />
