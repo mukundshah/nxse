@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-<a href="https://npmjs.com/package/@stylistic/eslint-plugin-js"><img src="https://img.shields.io/npm/v/nxse?style=flat&colorA=1B3C4A&colorB=10B981" alt="npm version"></a>
-<a href="https://npmjs.com/package/@stylistic/eslint-plugin-js"><img src="https://img.shields.io/npm/dm/nxse?style=flat&colorA=1B3C4A&colorB=10B981" alt="npm downloads"></a>
+<a href="https://npmjs.com/package/nxse"><img src="https://img.shields.io/npm/v/nxse?style=flat&colorA=1B3C4A&colorB=10B981" alt="npm version"></a>
+<a href="https://npmjs.com/package/nxse"><img src="https://img.shields.io/npm/dm/nxse?style=flat&colorA=1B3C4A&colorB=10B981" alt="npm downloads"></a>
 <a href=""><img alt="Nuxt" src="https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js"></a>
 </p>
 
