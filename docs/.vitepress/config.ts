@@ -33,7 +33,6 @@ export default defineConfig({
   description: 'Database utilities, API views, admin UI, and more for Nuxt',
 
   lastUpdated: true,
-  cleanUrls: true,
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
