@@ -70,27 +70,27 @@ The database credentials to use. Depends on the database driver.
 ::: code-group
 
 ```ts [d1]
-interface DBCredentials {
+type DBCredentials = {
   wranglerConfigPath: string
   dbName: string
 }
 ```
 
 ```ts [turso]
-interface DBCredentials {
+type DBCredentials = {
   url: string
   authToken?: string
 }
 ```
 
 ```ts [better-sqlite3]
-interface DBCredentials {
+type DBCredentials = {
   url: string
 }
 ```
 
 ```ts [libsql]
-interface DBCredentials {
+type DBCredentials = {
   url: string
 }
 ```
