@@ -14,18 +14,18 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /getting-started
+      link: /docs/getting-started
     - theme: alt
       text: Demo
-      link: https://nxse-demo.vercel.app
+      link: https://nxse-demo.vercel.app/admin
 
 features:
-  - icon: 🫙
-    title: Database utilities
-    details: useDB composables for database access and management
+  - icon: 🛠️
+    title: Database Utilities
+    details: useDB composable for easier database access
   - icon: 🖥️
     title: Admin Panel
-    details: Django-like admin panel for managing your data
+    details: Django like opt-in admin panel for managing your data
   # - title: Feature C
   #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
