@@ -42,7 +42,7 @@ npm install nxse @nuxt/ui
 
 2. Add `nxse` to the `modules` section of `nuxt.config.ts`
 
-```js
+```ts
 export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',

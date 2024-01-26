@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /docs/getting-started
+      link: /getting-started/what-is-nxse
     - theme: alt
       text: Demo
       link: https://nxse-demo.vercel.app/admin

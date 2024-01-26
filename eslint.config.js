@@ -16,4 +16,9 @@ export default await antfu({
       'vue/html-self-closing': ['error', { html: { normal: 'never', void: 'always' } }],
     },
   },
+}, {
+  files: ['**/*.md'],
+  rules: {
+    'ts/consistent-type-definitions': ['warn', 'interface'],
+  },
 })
