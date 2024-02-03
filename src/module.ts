@@ -92,13 +92,13 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.nitro.virtual ||= {}
 
-    nuxt.options.nitro.virtual!['#server-extension/db/schema.mjs'] = `export * as schema from '${schema}'`
-    nuxt.options.nitro.virtual!['#server-extension/db/credential.mjs'] = `export const credential = ${JSON.stringify(options.drizzle.dbCredentials)}`
+    nuxt.options.nitro.virtual!['#nxse/db/schema.mjs'] = `export * as schema from '${schema}'`
+    nuxt.options.nitro.virtual!['#nxse/db/credential.mjs'] = `export const credential = ${JSON.stringify(options.drizzle.dbCredentials)}`
 
     nuxt.hooks.hook('nitro:config', async (nitroConfig) => {
-      nitroConfig.alias!['#server-extension/utils/h3-sql'] = resolve('./runtime/server/utils/h3-sql.ts')
-      nitroConfig.alias!['#server-extension/utils/drizzle-form'] = resolve('./runtime/server/utils/drizzle-form.ts')
-      nitroConfig.alias!['#server-extension/db'] = resolve(
+      nitroConfig.alias!['#nxse/utils/h3-sql'] = resolve('./runtime/server/utils/h3-sql.ts')
+      nitroConfig.alias!['#nxse/utils/drizzle-form'] = resolve('./runtime/server/utils/drizzle-form.ts')
+      nitroConfig.alias!['#nxse/db'] = resolve(
         `./runtime/server/utils/use-db/${options.drizzle.driver}.ts`,
       )
     })
@@ -140,20 +140,20 @@ export default defineNuxtModule<ModuleOptions>({
       if (adminSchema.length) {
         addTemplate({
           write: true,
-          filename: 'server-extension/admin/navigation-tree.mjs',
+          filename: 'nxse/admin/navigation-tree.mjs',
           getContents: () => buildNavigationTree(options.admin.route, adminSchema),
         })
 
         addTemplate({
           write: true,
-          filename: 'server-extension/admin/pages/index.vue',
+          filename: 'nxse/admin/pages/index.vue',
           getContents: () => `<template> <div></div> </template>`,
         })
         extendPages((pages) => {
           pages.unshift({
             name: 'admin',
             path: joinURL('/', options.admin.route),
-            file: '#build/server-extension/admin/pages/index.vue',
+            file: '#build/nxse/admin/pages/index.vue',
             meta: { layout: 'nxse-admin' },
           })
         })
@@ -172,15 +172,15 @@ export default defineNuxtModule<ModuleOptions>({
         Object.entries(crud(primaryKey)).forEach(([action, { imports, body, returns }]) => {
           addTemplate({
             write: true,
-            filename: fileName(table, action, primaryKey, 'server-extension/admin/api'),
+            filename: fileName(table, action, primaryKey, 'nxse/admin/api'),
             getContents: async () => handler(imports, body, returns, table, schema),
           })
 
-          nuxt.options.nitro.virtual![`#${fileName(table, action, primaryKey, 'server-extension/admin/api')}`] = () => nuxt.vfs[`#build/${fileName(table, action, primaryKey, 'server-extension/admin/api', false)}`]
+          nuxt.options.nitro.virtual![`#${fileName(table, action, primaryKey, 'nxse/admin/api')}`] = () => nuxt.vfs[`#build/${fileName(table, action, primaryKey, 'nxse/admin/api', false)}`]
 
           addServerHandler({
             route: `/__nxse_admin/api/${table}${action === 'list' ? '' : action === 'create' ? '' : `/:${primaryKey}`}`,
-            handler: `#${fileName(table, action, primaryKey, 'server-extension/admin/api')}`,
+            handler: `#${fileName(table, action, primaryKey, 'nxse/admin/api')}`,
             method: ACTION_METHODS[action],
           })
         })
@@ -188,7 +188,7 @@ export default defineNuxtModule<ModuleOptions>({
         Object.entries(crudPages(table, createFormSchema(drizzleTable))).forEach(([action, template]) => {
           addTemplate({
             write: true,
-            filename: pageFileName(kebabCase(table), action, primaryKey, 'server-extension/admin/pages'),
+            filename: pageFileName(kebabCase(table), action, primaryKey, 'nxse/admin/pages'),
             getContents: async () => template,
           })
 
@@ -196,7 +196,7 @@ export default defineNuxtModule<ModuleOptions>({
             pages.unshift({
               name: kebabCase(`${table}Admin${action[0].toUpperCase()}${action.slice(1)}`),
               path: joinURL('/', options.admin.route, kebabCase(table), action === 'list' ? '' : action === 'create' ? 'add' : `:${primaryKey}`),
-              file: `#build/${pageFileName(kebabCase(table), action, primaryKey, 'server-extension/admin/pages')}`,
+              file: `#build/${pageFileName(kebabCase(table), action, primaryKey, 'nxse/admin/pages')}`,
               meta: { layout: 'nxse-admin' },
             })
           })

@@ -12,7 +12,7 @@ export const ACTION_METHODS: Record<string, string> = {
 
 export const baseImports: Record<string, ESMImport | ESMImport[]> = {
   'h3': ['defineEventHandler'],
-  '#server-extension/db': ['useDB'],
+  '#nxse/db': ['useDB'],
 }
 
 export const handler = (imports: Record<string, ESMImport | ESMImport[]>, body: string, returns: string, model: string, schema: string, pool = false) => pool
@@ -52,7 +52,7 @@ export const crud = (primaryKey = 'id') => ({
       ...baseImports,
       'zod': ['z'],
       'drizzle-zod': ['createSelectSchema'],
-      '#server-extension/utils/h3-sql': ['h3SQL'],
+      '#nxse/utils/h3-sql': ['h3SQL'],
     },
     body: undent`
     const schema = createSelectSchema(model)

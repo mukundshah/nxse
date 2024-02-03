@@ -3,7 +3,7 @@ import type { Ref } from 'vue'
 import { inject, ref } from 'vue'
 
 // @ts-expect-error auto-generated
-import { navigationTree } from '#build/server-extension/admin/navigation-tree'
+import { navigationTree } from '#build/nxse/admin/navigation-tree'
 
 const to = '/'
 const title = 'Admin'
