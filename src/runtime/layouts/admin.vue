@@ -4,6 +4,7 @@ import { inject, ref } from 'vue'
 
 // @ts-expect-error auto-generated
 import { navigationTree } from '#build/nxse/admin/navigation-tree'
+import '#build/nxse/admin/nxse-admin.min'
 
 const to = '/'
 const title = 'Admin'
@@ -102,8 +103,8 @@ const hasAdminFilters = inject<Ref<boolean>>('hasAdminFilters', ref(false))
 
 <template>
   <NuxtLoadingIndicator />
-  <Body class="min-h-screen font-sans antialiased">
-    <header :class="header.wrapper">
+  <div class="nxse-flex nxse-min-h-screen nxse-flex-col nxse-bg-background">
+    <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <UContainer :class="header.container">
         <div :class="header.left">
           <NuxtLink :to="to" :aria-label="title ?? 'Admin'" :class="header.logo">
@@ -147,5 +148,5 @@ const hasAdminFilters = inject<Ref<boolean>>('hasAdminFilters', ref(false))
         </div>
       </UContainer>
     </main>
-  </Body>
+  </div>
 </template>

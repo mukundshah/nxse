@@ -123,8 +123,9 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     if (options.admin.enabled) {
-      addLayout({ src: resolve('./runtime/layouts/admin.vue') }, 'nxse-admin')
       addComponentsDir({ path: resolve('./runtime/components') })
+      addLayout({ src: resolve('./runtime/layouts/admin.vue') }, 'nxse-admin')
+      addTemplate({ src: resolve('./runtime/assets/nxse-admin.min.css'), fileName: 'nxse/admin/nxse-admin.min.css' })
 
       const schemas = await import(schema).then(m => m.default || m).catch((e) => {
         logger.error(e.message)
