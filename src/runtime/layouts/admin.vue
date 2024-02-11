@@ -4,7 +4,7 @@ import { inject, ref } from 'vue'
 
 // @ts-expect-error auto-generated
 import { navigationTree } from '#build/nxse/admin/navigation-tree'
-import '#build/nxse/admin/nxse-admin.min'
+import '#build/nxse/stylesheets'
 
 const to = '/'
 const title = 'Admin'
