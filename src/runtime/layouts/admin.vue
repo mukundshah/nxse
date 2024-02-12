@@ -14,7 +14,7 @@ import '#build/nxse/admin/stylesheets'
 </script>
 
 <template>
-  <NuxtLoadingIndicator />
+  <NuxtLoadingIndicator :height="2" color="var(--primary)" />
   <div class="flex min-h-screen flex-col bg-background">
     <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <div class="container flex justify-between h-14 max-w-screen-2xl items-center">
