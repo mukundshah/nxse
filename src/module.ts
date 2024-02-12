@@ -123,13 +123,21 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     if (options.admin.enabled) {
-      addComponentsDir({ path: resolve('./runtime/components') })
+      addComponentsDir({ path: resolve('./runtime/components'), extensions: ['.vue'] })
       addLayout({ src: resolve('./runtime/layouts/admin.vue') }, 'nxse-admin')
 
       // add styles
       addTemplate({
-        filename: 'nxse/stylesheets.mjs',
+        filename: 'nxse/admin/stylesheets.mjs',
         getContents: () => `import '${resolve('./runtime/assets/nxse-admin.min.css')}';`,
+      })
+
+      addTemplate({
+        filename: 'nxse/admin/constants.mjs',
+        getContents: () => [
+          `export const ADMIN_ROUTE = '${options.admin.route}'`,
+          `export const ADMIN_TITLE = '${options.admin.title}'`,
+        ].join('\n'),
       })
 
       // addTemplate({ src: resolve('./runtime/assets/nxse-admin.min.css'), filename: 'nxse/admin/nxse-admin.min.css' })
