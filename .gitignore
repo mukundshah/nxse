@@ -60,3 +60,7 @@ Temporary Items
 *.sqlite
 *.sqlite3
 *.db
+
+# minified files
+*.min.js
+*.min.css
