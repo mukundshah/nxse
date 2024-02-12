@@ -70,9 +70,9 @@
 
 @layer base {
   * {
-    @apply nxse-border-border;
+    @apply border-border;
   }
   body {
-    @apply nxse-bg-background nxse-text-foreground;
+    @apply bg-background text-foreground;
   }
 }

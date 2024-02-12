@@ -5,8 +5,6 @@ export default {
   darkMode: ['class'],
   safelist: ['dark'],
 
-  prefix: 'nxse-',
-
   content: [
     './src/runtime/components/**/*.{ts,tsx,vue}',
     './src/runtime/layouts/**/*.{ts,tsx,vue}',
