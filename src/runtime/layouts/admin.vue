@@ -16,13 +16,13 @@ import '#build/nxse/admin/stylesheets'
 <template>
   <NuxtLoadingIndicator :height="2" color="var(--primary)" />
   <div class="flex min-h-screen flex-col bg-background">
-    <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div class="container flex justify-between h-14 max-w-screen-2xl items-center">
+    <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border px-4">
+      <div class="flex justify-between h-14 items-center">
         <!-- <MobileNav /> -->
 
         <div class="mr-4 hidden md:flex">
           <NuxtLink :to="ADMIN_ROUTE" :aria-label="ADMIN_TITLE">
-            <h1 class="px-4 text-lg font-semibold tracking-tight">
+            <h1 class="px-2 text-lg font-semibold tracking-tight">
               {{ ADMIN_TITLE }}
             </h1>
           </NuxtLink>
@@ -32,10 +32,10 @@ import '#build/nxse/admin/stylesheets'
         </div>
       </div>
     </header>
-    <main class="flex-1  bg-background">
+    <main class="flex-1 bg-background">
       <div class="grid lg:grid-cols-5">
         <AdminSidebar :links="navigationTree" class="hidden lg:block" />
-        <div class="col-span-3 lg:col-span-4 lg:border-l">
+        <div class="col-span-3 lg:col-span-4 lg:border-l p-4">
           <slot></slot>
         </div>
       </div>
