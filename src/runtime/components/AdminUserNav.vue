@@ -38,7 +38,7 @@ import {
       </DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
-        <DropdownMenuItem> Homepage </DropdownMenuItem>
+        <DropdownMenuItem> View site </DropdownMenuItem>
         <DropdownMenuItem> Change password </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
