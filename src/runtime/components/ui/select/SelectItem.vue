@@ -8,7 +8,7 @@ import {
   useForwardProps,
 } from 'radix-vue'
 import { CheckIcon } from '@radix-icons/vue'
-import { cn } from 'src/utils'
+import { cn } from '../../../../utils'
 
 const props = defineProps<SelectItemProps & { class?: HTMLAttributes['class'] }>()
 

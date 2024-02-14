@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type HTMLAttributes, computed } from 'vue'
 import { SelectGroup, type SelectGroupProps } from 'radix-vue'
-import { cn } from 'src/utils'
+import { cn } from '../../../../utils'
 
 const props = defineProps<SelectGroupProps & { class?: HTMLAttributes['class'] }>()
 
@@ -14,6 +14,6 @@ const delegatedProps = computed(() => {
 
 <template>
   <SelectGroup :class="cn('p-1 w-full', props.class)" v-bind="delegatedProps">
-    <slot />
+    <slot></slot>
   </SelectGroup>
 </template>
