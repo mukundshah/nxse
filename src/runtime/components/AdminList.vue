@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import DataTable from './ui/data-table/DataTable.vue'
+import { Input } from './ui/input'
+
 import { computed, provide, ref, useFetch, watch } from '#imports'
 
 const props = defineProps<{
@@ -31,67 +34,18 @@ watch(data, () => {
 </script>
 
 <template>
-  <div class="flex items-center justify-between w-full mb-5">
-    <div>
-      <UInput v-model="search" icon="i-heroicons-magnifying-glass-20-solid" placeholder="Search..." />
+  <div class="space-y-4">
+    <div class="flex items-center justify-between">
+      <div class="flex flex-1 items-center space-x-2">
+        <Input
+          v-model="search"
+          placeholder="Search"
+          class="h-8 w-[150px] lg:w-[250px]"
+        />
+      </div>
+    <!-- Replace this with actions -->
+    <!-- <DataTableViewOptions :table="table" /> -->
     </div>
-
-    <div class="flex gap-1.5 items-center">
-      <!-- <UDropdown v-if="selectedRows.length > 1" :items="actions" :ui="{ width: 'w-36' }">
-        <UButton
-          icon="i-heroicons-chevron-down"
-          trailing
-          color="gray"
-          size="xs"
-        >
-          Mark as
-        </UButton>
-      </UDropdown> -->
-
-      <!-- <USelectMenu v-model="selectedColumns" :options="columns" multiple>
-        <UButton
-          icon="i-heroicons-view-columns"
-          color="gray"
-          size="xs"
-        >
-          Columns
-        </UButton>
-      </USelectMenu>
-
-      <UButton
-        icon="i-heroicons-funnel"
-        color="gray"
-        size="xs"
-        :disabled="search === '' && selectedStatus.length === 0"
-        @click="resetFilters"
-      >
-        Reset
-      </UButton> -->
-    </div>
-  </div>
-  <UTable
-    :rows="data.results"
-    :loading="pending"
-    sort-asc-icon="i-heroicons-arrow-up"
-    sort-desc-icon="i-heroicons-arrow-down"
-    class="w-full"
-  />
-  <div v-if="data && data.pagination" class="flex flex-wrap items-center justify-between pt-5">
-    <div class="flex items-center gap-1.5">
-      <span class="text-sm leading-5">Rows per page:</span>
-
-      <USelect
-        v-model="pageSize"
-        :options="[10, 20, 50, 100, 200]"
-        size="xs"
-      />
-    </div>
-
-    <UPagination
-      v-if="data.pagination.pages > 1"
-      v-model="page"
-      :page-count="data.pagination.size"
-      :total="data.pagination.pages"
-    />
+    <DataTable :rows="data.results" :pending="pending" />
   </div>
 </template>
