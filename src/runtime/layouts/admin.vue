@@ -33,9 +33,9 @@ import '#build/nxse/admin/stylesheets'
       </div>
     </header>
     <main class="flex-1 bg-background">
-      <div class="grid lg:grid-cols-5">
-        <AdminSidebar :links="navigationTree" class="hidden lg:block" />
-        <div class="col-span-3 lg:col-span-4 lg:border-l p-4">
+      <div class="grid lg:grid-cols-5 lg:grid-rows-1 h-full">
+        <AdminSidebar :links="navigationTree" class="hidden lg:block h-full" />
+        <div class="col-span-3 lg:col-span-4 lg:border-l p-4 ">
           <slot></slot>
         </div>
       </div>
