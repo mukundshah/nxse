@@ -12,6 +12,8 @@ import {
 
 import { Input } from './ui/input'
 
+import { Button } from './ui/button'
+
 import { reactive, ref, useFetch, useLazyFetch, useRoute } from '#imports'
 
 const props = withDefaults(defineProps<{
@@ -39,9 +41,12 @@ const onSubmit = async () => {
 <template>
   <form class="space-y-4" @submit="onSubmit">
     <template v-for="(field, key) in props.fields" :key="key">
-      <FormField v-slot="{ componentField }" :name="field.name">
+      <FormField v-slot="{ componentField }" :name="field.name" class="py-2">
         <FormItem>
-          <FormLabel> {{ field.label }} </FormLabel>
+          <FormLabel>
+            {{ field.label }}
+            <span v-if="field.required" class="text-destructive"> *</span>
+          </FormLabel>
           <FormControl>
             <template v-if="field.type === 'select'">
               <!-- <USelect :options="field.options" /> -->
@@ -63,11 +68,27 @@ const onSubmit = async () => {
           </FormControl>
         </FormItem>
       </FormField>
-      <UFormGroup :name="field.name" :label="field.label" />
     </template>
-    <div class="flex items-center gap-4">
-      <UButton type="button" color="red" variant="soft" label="Delete" />
-      <UButton :loading="pending" type="submit" label="Save" />
-    </div>
   </form>
+  <div class="flex flex-row-reverse items-center w-full rounded-md  border-input justify-between gap-4">
+    <div class="flex flex-row-reverse justify-end gap-4">
+      <Button type="submit" :disabled="pending">
+        Save
+      </Button>
+      <Button type="submit" :disabled="pending" variant="secondary">
+        Save and continue editing
+      </Button>
+      <Button type="button" :disabled="pending" variant="secondary">
+        Save and add another
+      </Button>
+    </div>
+    <div class="flex flex-row-reverse justify-end gap-4">
+      <Button v-if="props.edit" type="submit" :disabled="pending" variant="destructive">
+        Delete
+      </Button>
+      <Button v-else type="submit" :disabled="pending" variant="destructive">
+        Cancel
+      </Button>
+    </div>
+  </div>
 </template>
