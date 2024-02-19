@@ -8,6 +8,7 @@ export default {
   content: [
     './src/runtime/components/**/*.{ts,tsx,vue}',
     './src/runtime/layouts/**/*.{ts,tsx,vue}',
+    './src/runtime/pages/**/*.{ts,tsx,vue}',
   ],
 
   theme: {

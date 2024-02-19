@@ -11,7 +11,8 @@ import {
 } from './ui/form'
 
 import { Input } from './ui/input'
-
+import { Textarea } from './ui/textarea'
+import { Checkbox } from './ui/checkbox'
 import { Button } from './ui/button'
 
 import { reactive, ref, useFetch, useLazyFetch, useRoute } from '#imports'
@@ -52,13 +53,13 @@ const onSubmit = async () => {
               <!-- <USelect :options="field.options" /> -->
             </template>
             <template v-else-if="field.type === 'checkbox'">
-              <!-- <UCheckbox /> -->
+              <Checkbox v-bind="componentField" />
             </template>
             <template v-else-if="field.type === 'radio'">
               <!-- <URadio /> -->
             </template>
             <template v-else-if="field.type === 'textarea'">
-              <!-- <UTextarea autoresize resize /> -->
+              <Textarea v-bind="componentField" />
             </template>
             <template v-else>
               <Input :type="field.type" v-bind="componentField" />
