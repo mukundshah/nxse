@@ -10,7 +10,7 @@
   },
   "framework": "vite",
   "aliases": {
-    "components": "src/runtime/components",
-    "utils": "src/utils"
+    "components": "~/src/runtime/components",
+    "utils": "~/src/utils"
   }
 }

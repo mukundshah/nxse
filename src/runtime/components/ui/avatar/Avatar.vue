@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'vue'
 import { AvatarRoot } from 'radix-vue'
 
-import { cn } from '../../../../utils'
+import { cn } from '~/src/utils'
 
 import { type AvatarVariants, avatarVariant } from '.'
 
