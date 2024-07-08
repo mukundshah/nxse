@@ -26,15 +26,13 @@
     "dist"
   ],
   "scripts": {
-    "dev": "nuxi dev playground",
+    "dev": "",
     "play": "pnpm dev",
-    "css": "tailwindcss -i ./tailwind.css -o ./src/runtime/assets/nxse-admin.min.css",
-    "css:watch": "pnpm css --watch",
-    "dev:build": "nuxi build playground",
-    "dev:generate": "nuxi generate playground",
-    "dev:prepare": "pnpm css && nuxt-module-build prepare && nuxt-module-build build --stub && nuxi prepare playground",
+    "dev:build": "",
+    "dev:generate": "",
+    "dev:prepare": "",
     "postinstall": "pnpm dev:prepare",
-    "build": "nuxt-module-build build",
+    "build": "unbuild",
     "prepack": "pnpm build",
     "release": "pnpm lint && pnpm prepack && pnpm changelogen --release --push && pnpm publish",
     "lint": "eslint .",
@@ -44,35 +42,13 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.9.3",
-    "@radix-icons/vue": "^1.0.0",
-    "@tanstack/vue-table": "^8.11.8",
-    "@vee-validate/zod": "^4.12.5",
-    "@vueuse/core": "^10.7.2",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "drizzle-kit": "^0.20.13",
-    "drizzle-orm": "^0.29.3",
-    "drizzle-zod": "^0.5.1",
-    "knitwork": "^1.0.0",
-    "pathe": "^1.1.2",
-    "radix-vue": "^1.4.2",
-    "scule": "1.2.0",
-    "tailwind-merge": "^2.2.1",
-    "ufo": "^1.3.2",
-    "v-calendar": "^3.1.2",
-    "vee-validate": "^4.12.5",
-    "zod": "3.22.4"
+    "h3": "npm:h3-nightly@latest",
+    "mixwith.ts": "^1.1.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.3",
-    "@nuxt/devtools": "latest",
-    "@nuxt/module-builder": "^0.5.5",
     "changelogen": "^0.5.5",
     "eslint": "^8.56.0",
-    "eslint-plugin-tailwindcss": "^3.14.0",
-    "shadcn-vue": "^0.9.0",
-    "tailwindcss": "^3.4.1",
-    "tailwindcss-animate": "^1.0.7"
+    "unbuild": "3.0.0-rc.6"
   }
 }
