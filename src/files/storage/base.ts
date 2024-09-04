@@ -22,4 +22,8 @@ class BaseStorage {
   async list(prefix = "") {
     throw new Error("list() must be implemented by a storage backend");
   }
+
+  async size(fileName) {
+    throw new Error("size() must be implemented by a storage backend");
+  }
 }
