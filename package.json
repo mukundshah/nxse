@@ -28,12 +28,9 @@
   "scripts": {
     "dev": "nuxi dev playground",
     "play": "pnpm dev",
-    "css": "tailwindcss -i ./tailwind.css -o ./src/runtime/assets/nxse-admin.min.css",
-    "css:watch": "pnpm css --watch",
     "dev:build": "nuxi build playground",
     "dev:generate": "nuxi generate playground",
-    "dev:prepare": "pnpm css && nuxt-module-build prepare && nuxt-module-build build --stub && nuxi prepare playground",
-    "postinstall": "pnpm dev:prepare",
+    "dev:prepare": "nuxt-module-build prepare && nuxt-module-build build --stub && nuxi prepare playground",
     "build": "nuxt-module-build build",
     "prepack": "pnpm build",
     "release": "pnpm lint && pnpm prepack && pnpm changelogen --release --push && pnpm publish",
@@ -44,33 +41,20 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.9.3",
-    "@radix-icons/vue": "^1.0.0",
-    "@tanstack/vue-table": "^8.11.8",
-    "@vee-validate/zod": "^4.12.5",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "drizzle-kit": "^0.20.13",
-    "drizzle-orm": "^0.29.3",
-    "drizzle-zod": "^0.5.1",
-    "knitwork": "^1.0.0",
+    "@nuxt/kit": "npm:@nuxt/kit-nightly@4.0.0-28726502.5de507f0",
+    "@vinejs/vine": "^2.1.0",
+    "h3": "npm:h3-nightly@1.12.1-1721739391.a15b8de",
+    "knitwork": "^1.1.0",
+    "mixwith.ts": "^1.1.3",
     "pathe": "^1.1.2",
-    "radix-vue": "^1.4.2",
-    "scule": "1.2.0",
-    "tailwind-merge": "^2.2.1",
-    "ufo": "^1.3.2",
-    "vee-validate": "^4.12.5",
-    "zod": "3.22.4"
+    "scule": "1.3.0",
+    "ufo": "^1.5.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.6.3",
+    "@antfu/eslint-config": "^2.25.1",
     "@nuxt/devtools": "latest",
-    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/module-builder": "^0.8.3",
     "changelogen": "^0.5.5",
-    "eslint": "^8.56.0",
-    "eslint-plugin-tailwindcss": "^3.14.0",
-    "shadcn-vue": "^0.9.0",
-    "tailwindcss": "^3.4.1",
-    "tailwindcss-animate": "^1.0.7"
+    "eslint": "^9.9.0"
   }
 }
