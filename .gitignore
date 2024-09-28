@@ -16,6 +16,7 @@ node_modules
 # Generated dirs
 dist
 cache
+!src/cache
 
 # Nuxt
 .nuxt
