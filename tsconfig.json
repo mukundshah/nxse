@@ -1,22 +1,18 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2020", "DOM"],
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "target": "ESNext",
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "strict": false,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "noEmit": true,
-    "moduleResolution": "Bundler",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "declaration": true,
+    "verbatimModuleSyntax": true
   },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
