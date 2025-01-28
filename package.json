@@ -23,6 +23,9 @@
   },
   "main": "./dist/index.cjs",
   "types": "./dist/types.d.ts",
+  "bin": {
+    "nxse": "./dist/bin/nxse.mjs"
+  },
   "scripts": {
     "dev": "",
     "play": "pnpm dev",
@@ -40,9 +43,9 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "db0": "0.2.3",
     "h3": "npm:h3-nightly@latest",
     "mixwith.ts": "^1.1.3",
-    "db0": "0.2.3",
     "valibot": "1.0.0-beta.14"
   },
   "devDependencies": {
